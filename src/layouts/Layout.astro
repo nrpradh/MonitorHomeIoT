@@ -1,0 +1,44 @@
+---
+const { title = "The Blue Serenity", description = "Portfolio website - showcasing skills, projects, and contact information." } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://arvenkaito.com/" />
+
+		<!-- OpenGraph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/og-image.png" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="/og-image.png" />
+
+		<!-- JSON-LD Schema -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Arven Kaito",
+				"url": "https://arvenkaito.com",
+				"jobTitle": "Frontend Developer",
+				"sameAs": []
+			}
+		</script>
+	</head>
+
+	<body>
+		<slot />
+	</body>
+</html>
