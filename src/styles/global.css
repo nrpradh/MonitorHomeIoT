@@ -24,7 +24,7 @@ body {
     background-color: #eaeaea;
 }
 .page-container {
-    @apply space-y-12 pt-8
+    @apply space-y-6 pt-8
 }
 
 h1 {
@@ -33,13 +33,13 @@ h1 {
 }
 
 h2 {
-    @apply uppercase font-antonio-regular md:text-8xl  text-4xl
+    @apply uppercase font-antonio-regular md:text-8xl  text-4xl 
 }
 
 
 
 h3 {
-    @apply  uppercase font-antonio-regular md:text-5xl text-4xl
+    @apply  uppercase font-antonio-regular md:text-5xl text-4xl 
 }
 
 
@@ -47,8 +47,17 @@ h4, nav, .links {
     @apply uppercase font-antonio-medium md:text-3xl text-2xl
 }
 
-li, time, h5, p {
-    @apply font-dm-sans-regular  md:text-xl mb-2
+li, time, h5 {
+    @apply font-dm-sans-regular text-white  md:text-xl mb-2 
+    px-4 py-4 
+}
+
+.bgBlur {
+    @apply bg-black/45 backdrop-blur-none rounded-b-sm
+}
+
+p {
+    @apply font-dm-sans-regular text-white  md:text-lg 
 }
 
 h6 {
@@ -64,9 +73,17 @@ h6 {
 }
 
 .rooms {
-    @apply h-72 border p-2
+    @apply h-56 w-96  rounded border 
 }
 
+.switch {
+    @apply border-gray-400 bg-gray-500 text-gray-400 
+    checked:border-green-500 checked:bg-green-900 checked:text-green-500
+}
+
+button {
+    @apply font-dm-sans-regular
+}
 
 /* Each Antonio FONTS */
 @font-face {

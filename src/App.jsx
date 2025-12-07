@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router";
 import Lenis from "lenis";
+import "./assets/app.css";
 
 // Pages
 import Home from "./pages/landing/main";
