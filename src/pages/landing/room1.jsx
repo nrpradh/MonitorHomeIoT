@@ -46,7 +46,7 @@ export default function Room1({ client }) {
         // Message handler
         const messageHandler = (topic, message) => {
             const payload = message.toString();
-            console.log("Frontend received:", topic, payload);
+            // console.log("Frontend received:", topic, payload);
 
             if (topic === "home/backyard/wm/status") {
                 setWmStatus(payload);
@@ -123,7 +123,7 @@ export default function Room1({ client }) {
                 {/* Mesin Cuci */}
                 <div className="rooms flex flex-col justify-between bg-[url(/img/washing.png)] bg-cover bg-center">
                     <div className="flex items-center justify-between pr-5 ">
-                        <h5>Mesin Cuci</h5>
+                        <h5>Washing Machine</h5>
                         {wmOccupancy && <FaUserLarge className="text-3xl text-white" />}
                     </div>
                         
@@ -147,7 +147,7 @@ export default function Room1({ client }) {
                 {/* Pompa Air */}
                 <div className="rooms flex flex-col justify-between bg-[url(/img/pump.png)] bg-cover bg-center">
                     <div className="flex items-center justify-between pr-5 ">
-                        <h5>Pompa Air</h5>
+                        <h5>Water Pump</h5>
                         {pumpOccupancy && <FaUserLarge className="text-3xl text-white" />}
                     </div>
                     <div className="flex items-center justify-between p-2 bgBlur">

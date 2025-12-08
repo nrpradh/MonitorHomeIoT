@@ -7,7 +7,7 @@ import Room2 from "./room2";
 import Room3 from "./room3";
 
 export default function Home() {
-    const [brokerUrl, setBrokerUrl] = useState("ws://192.168.1.6:9001");
+    const [brokerUrl, setBrokerUrl] = useState("ws://192.168.10.28:9001");
     const [client, setClient] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
     const [isConnecting, setIsConnecting] = useState(false);
@@ -129,7 +129,7 @@ export default function Home() {
                 </article>
 
                 <article aria-label="Room 2">
-                    <Room2 />
+                    <Room2 client={client}/>
                 </article>
                 
                 <article aria-label="Room 3">
