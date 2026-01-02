@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { connectToBroker, disconnectBroker } from "../../mqtt/mqttClient";
 
 // pages or rooms
-import Room1 from "./room1";
-import Room2 from "./room2";
-import Room3 from "./room3";
+import Backyard from "./rooms/Backyard";
+import Kitchen from "./rooms/Kitchen";
+import Bedrooms  from "./rooms/Bedrooms";
 
 export default function Home() {
     const [brokerUrl, setBrokerUrl] = useState("ws://192.168.10.28:9001");
@@ -58,7 +58,7 @@ export default function Home() {
     return (
         <main className="page-container">
             {/* Header Section */}
-            <header className="flex items-center justify-between">
+            <header className="lg:flex space-y-4 lg:space-y-0 items-center justify-between">
                 <div className="flex flex-col">
                     <h3 id="hero-title" className="leading-none">
                         Monitor Home
@@ -67,7 +67,7 @@ export default function Home() {
 
                 {/* Broker Settings */}
                 <form
-                    className="flex space-x-4 rounded bg-white px-4 py-2 items-center"
+                    className="lg:flex space-x-4  space-y-4 lg:space-y-0 rounded bg-white px-4 py-2 items-center"
                     onSubmit={(e) => e.preventDefault()}
                     aria-label="Broker Connection Settings"
                 >
@@ -79,7 +79,7 @@ export default function Home() {
                         id="broker-input"
                         title="Broker input"
                         placeholder="Enter broker URL"
-                        className="border px-2 py-1 font-dm-sans-regular"
+                        className="border px-2 py-1 font-dm-sans-regular "
                         value={brokerUrl}
                         onChange={(e) => setBrokerUrl(e.target.value)}
                         disabled={isConnecting} // disable input saat connect
@@ -123,18 +123,18 @@ export default function Home() {
             )}
 
             {/* Rooms Section */}
-            <section className="flex w-full bg-gray-300 rounded-lg p-6 space-x-5 mt-6" aria-label="Rooms Overview">
-                <article aria-label="Room 1">
-                    <Room1 client={client}/>
+            <section className="lg:flex w-full space-y-6 lg:space-y-0 bg-gray-300 rounded-lg p-6 space-x-5 mt-6" aria-label="Rooms Overview">
+                <article aria-label="Bedrooms">
+                    <Bedrooms  />
+                </article>
+                <article aria-label="Kitchen">
+                    <Kitchen client={client}/>
+                </article>
+                <article aria-label="Backyard">
+                    <Backyard client={client}/>
                 </article>
 
-                <article aria-label="Room 2">
-                    <Room2 client={client}/>
-                </article>
                 
-                <article aria-label="Room 3">
-                    <Room3 />
-                </article>
             </section>
         </main>
     );

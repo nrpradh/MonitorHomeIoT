@@ -73,7 +73,11 @@ h6 {
 }
 
 .rooms {
-    @apply h-56 w-96  rounded border 
+    @apply h-56 lg:w-96  rounded border 
+}
+
+.bedrooms {
+    @apply  h-36 lg:w-96  rounded border 
 }
 
 .switch {

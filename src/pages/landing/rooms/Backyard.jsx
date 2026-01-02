@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { subscribeTopic, publishMessage } from "../../mqtt/mqttClient";
+import { subscribeTopic, publishMessage } from "../../../mqtt/mqttClient";
 import { FaUserLarge } from "react-icons/fa6";
 
-export default function Room1({ client }) {
+export default function Backyard({ client }) {
     const [wmStatus, setWmStatus] = useState("UNKNOWN");
     const [pumpStatus, setPumpStatus] = useState("UNKNOWN");
     const [occupancy, setOccupancy] = useState(false);

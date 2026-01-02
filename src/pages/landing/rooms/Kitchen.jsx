@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { subscribeTopic, publishMessage } from "../../mqtt/mqttClient";
+import { subscribeTopic, publishMessage } from "../../../mqtt/mqttClient";
 import { FaUserLarge } from "react-icons/fa6";
 
-export default function Room2({ client }) {
+export default function Kitchen({ client }) {
     const [fridgeStatus, setFridgeStatus] = useState("UNKNOWN");
     const [stoveStatus, setStoveStatus] = useState("UNKNOWN");
     const [fridgeOccupancy, setFridgeOccupancy] = useState(false);
