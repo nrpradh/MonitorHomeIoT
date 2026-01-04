@@ -125,7 +125,7 @@ export default function Home() {
             {/* Rooms Section */}
             <section className="lg:flex w-full space-y-6 lg:space-y-0 bg-gray-300 rounded-lg p-6 space-x-5 mt-6" aria-label="Rooms Overview">
                 <article aria-label="Bedrooms">
-                    <Bedrooms  />
+                    <Bedrooms client={client}  />
                 </article>
                 <article aria-label="Kitchen">
                     <Kitchen client={client}/>

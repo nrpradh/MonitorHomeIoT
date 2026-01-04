@@ -121,7 +121,7 @@ export default function Backyard({ client }) {
 
             <aside className="space-y-4">
                 {/* Mesin Cuci */}
-                <div className="rooms flex flex-col justify-between bg-[url(/img/washing.png)] bg-cover bg-center">
+                <div className="rooms flex flex-col justify-between bg-[url(/img/rooms/washing.png)] bg-cover bg-center">
                     <div className="flex items-center justify-between pr-5 ">
                         <h5>Washing Machine</h5>
                         {wmOccupancy && <FaUserLarge className="text-3xl text-white" />}
@@ -145,7 +145,7 @@ export default function Backyard({ client }) {
                 </div>
 
                 {/* Pompa Air */}
-                <div className="rooms flex flex-col justify-between bg-[url(/img/pump.png)] bg-cover bg-center">
+                <div className="rooms flex flex-col justify-between bg-[url(/img/rooms/pump.png)] bg-cover bg-center">
                     <div className="flex items-center justify-between pr-5 ">
                         <h5>Water Pump</h5>
                         {pumpOccupancy && <FaUserLarge className="text-3xl text-white" />}

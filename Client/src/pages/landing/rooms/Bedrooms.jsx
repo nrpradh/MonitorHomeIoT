@@ -3,9 +3,9 @@ import { subscribeTopic, publishMessage } from "../../../mqtt/mqttClient";
 import { FaUserLarge } from "react-icons/fa6";
 
 const BEDROOMS = [
-    { key: "one", label: "#1", bg: "/img/bedrooms/one.png" },
-    { key: "two", label: "#2", bg: "/img/bedrooms/two.png" },
-    { key: "three", label: "#3", bg: "/img/bedrooms/three.png" },
+    { key: "one", label: "#1", bg: "/img/rooms/bedrooms/one.png" },
+    { key: "two", label: "#2", bg: "/img/rooms/bedrooms/two.png" },
+    { key: "three", label: "#3", bg: "/img/rooms/bedrooms/three.png" },
 ];
 
 export default function Bedrooms({ client }) {
@@ -29,52 +29,65 @@ export default function Bedrooms({ client }) {
         }
     }, [client]);
 
-    // Subscribe to MQTT topics
     useEffect(() => {
         if (!client) return;
 
-        BEDROOMS.forEach(({ key }) => {
-            subscribeTopic(`home/bedrooms/${key}/lamp/status`);
-            subscribeTopic(`home/bedrooms/${key}/occupancy`);
-        });
+        // Explicitly subscribe all topics
+        const topics = [
+            "home/bedrooms/one/lamp/status",
+            "home/bedrooms/one/occupancy",
+            "home/bedrooms/two/lamp/status",
+            "home/bedrooms/two/occupancy",
+            "home/bedrooms/three/lamp/status",
+            "home/bedrooms/three/occupancy",
+        ];
 
+        topics.forEach(topic => client.subscribe(topic));
+
+        // Message handler
         const handler = (topic, message) => {
             const payload = message.toString();
 
-            BEDROOMS.forEach(({ key }) => {
-                if (topic === `home/bedrooms/${key}/lamp/status`) {
-                    setStates(prev => ({
-                        ...prev,
-                        [key]: {
-                            ...prev[key],
-                            status: payload,
-                        },
-                    }));
-                }
-
-                if (topic === `home/bedrooms/${key}/occupancy`) {
-                    const occupied = payload === "ON";
-                    setStates(prev => ({
-                        ...prev,
-                        [key]: {
-                            ...prev[key],
-                            occupancy: occupied,
-                        },
-                    }));
-
-                    setToastType("info");
-                    setToastMessage(
-                        occupied
-                            ? `${key.toUpperCase()} bedroom is occupied`
-                            : `${key.toUpperCase()} bedroom is now free`
-                    );
-                }
-            });
+            if (topic === "home/bedrooms/one/lamp/status") {
+                setStates(prev => ({ ...prev, one: { ...prev.one, status: payload } }));
+            } else if (topic === "home/bedrooms/one/occupancy") {
+                const occupied = payload === "ON";
+                setStates(prev => ({ ...prev, one: { ...prev.one, occupancy: occupied } }));
+                setToastType("info");
+                setToastMessage(
+                    occupied
+                        ? "Bedroom #1 sedang digunakan"
+                        : "Bedroom #1 selesai digunakan"
+                );
+            } else if (topic === "home/bedrooms/two/lamp/status") {
+                setStates(prev => ({ ...prev, two: { ...prev.two, status: payload } }));
+            } else if (topic === "home/bedrooms/two/occupancy") {
+                const occupied = payload === "ON";
+                setStates(prev => ({ ...prev, two: { ...prev.two, occupancy: occupied } }));
+                setToastType("info");
+                setToastMessage(
+                    occupied
+                        ? "Bedroom #2 sedang digunakan"
+                        : "Bedroom #2 selesai digunakan"
+                );
+            } else if (topic === "home/bedrooms/three/lamp/status") {
+                setStates(prev => ({ ...prev, three: { ...prev.three, status: payload } }));
+            } else if (topic === "home/bedrooms/three/occupancy") {
+                const occupied = payload === "ON";
+                setStates(prev => ({ ...prev, three: { ...prev.three, occupancy: occupied } }));
+                setToastType("info");
+                setToastMessage(
+                    occupied
+                        ? "Bedroom #3 sedang digunakan"
+                        : "Bedroom #3 selesai digunakan"
+                );
+            }
         };
 
         client.on("message", handler);
         return () => client.off("message", handler);
     }, [client]);
+
 
     const toggleLamp = (key, status) => {
         if (!client) {
@@ -94,9 +107,12 @@ export default function Bedrooms({ client }) {
             },
         }));
 
+        // Get label for natural sentence
+        const label = BEDROOMS.find(b => b.key === key)?.label || key;
+
         setToastType("success");
         setToastMessage(
-            `${key.toUpperCase()} lamp ${next === "ON" ? "turned on" : "turned off"}`
+            `Lampu di Bedroom ${label} ${next === "ON" ? "dinyalakan" : "dimatikan"}`
         );
     };
 

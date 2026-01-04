@@ -113,7 +113,7 @@ export default function Kitchen({ client }) {
 
             <aside className="space-y-4">
                 {/* Kulkas */}
-                <div className="rooms flex flex-col justify-between bg-[url(/img/fridge.png)] bg-cover bg-center">
+                <div className="rooms flex flex-col justify-between bg-[url(/img/rooms/fridge.png)] bg-cover bg-center">
                     <div className="flex items-center justify-between pr-5">
                         <h5>Fridge</h5>
                         {fridgeOccupancy && <FaUserLarge className="text-3xl text-white" />}
@@ -135,7 +135,7 @@ export default function Kitchen({ client }) {
                 </div>
 
                 {/* Kompor */}
-                <div className="rooms flex flex-col justify-between bg-[url(/img/stove.png)] bg-cover bg-center">
+                <div className="rooms flex flex-col justify-between bg-[url(/img/rooms/stove.png)] bg-cover bg-center">
                     <div className="flex items-center justify-between pr-5">
                         <h5>Stove</h5>
                         {stoveOccupancy && <FaUserLarge className="text-3xl text-white" />}
