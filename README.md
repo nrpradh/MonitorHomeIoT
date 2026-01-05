@@ -50,12 +50,21 @@ Dengan arsitektur ini, projek *Home Monitor* memungkinkan pemantauan dan pengend
 ![Wiring Diagram Placeholder](./Client/public/img)
 ## d. Gambar arsitektur aplikasi dan jaringan komputer  
 
-### Struktur Frontend (Astro + React)
+### 1. Wiring untuk *Bedrooms* 
+> Rangkaian untuk ketiga ruang kamar menggunakan Wokwi.
 
-> **Placeholder:** Diagram arsitektur aplikasi akan ditambahkan di sini.  
-> Diagram ini akan menunjukkan alur komunikasi MQTT antara perangkat IoT, MQTT Broker (Mosquitto), dan dashboard web (Astro + React), serta koneksi melalui WebSocket.
+![Wiring Bedrooms](./Client/public/img/wiring/bedrooms.png)
+---
+### 2. Wiring untuk *Backyard* 
+> Rangkaian untuk area belakang rumah menggunakan Wokwi.
 
-![Arsitektur Aplikasi Placeholder](./Client/public/img/)
+![Wiring Backyard](./Client/public/img/wiring/backyard.png)
+---
+### 3. Wiring untuk *Kitchen* 
+> Rangkaian untuk ruangan dapur menggunakan Wokwi.
+
+![Wiring Kitchen](./Client/public/img/wiring/kitchen.png)
+---
 
 Catatan:
 File dan folder yang tidak ditampilkan di bawah **tidak digunakan** dalam pembahasan proyek ini.
@@ -285,10 +294,11 @@ Mensimulasikan penggunaan mesin cuci:
 
 ## i. Foto Perangkat
 
-> **Placeholder:** Foto perangkat IoT akan ditambahkan di sini.  
-> Foto ini akan menampilkan perangkat seperti lampu, kulkas, kompor, mesin cuci, pompa air, dan mikrokontroler yang digunakan.
+| Bedroom | Backyard & Kitchen |
+|--------|-------------------|
+| ![Bedroom](./Client/public/img/devices/bedrooms.png) | ![Backyard & Kitchen](./Client/public/img/devices/backyard-kitchen.png) |
 
-![Foto Perangkat Placeholder](./Client/public/img/)
+
 
 
 ## ii. Tangkapan layar dashhboard
@@ -311,7 +321,7 @@ Mensimulasikan penggunaan mesin cuci:
 > Pengguna juga dapat **mengendalikan perangkat** melalui dashboard, misalnya menyalakan atau mematikan lampu dan alat listrik lainnya.
 
 
-![Dashboard Connected](./Client/public/img/dashboard/online-device.png)
+![Dashboard Devices Offline](./Client/public/img/dashboard/online-device.png)
 
 ---
 
@@ -319,7 +329,7 @@ Mensimulasikan penggunaan mesin cuci:
 > Tampilan dashboard menunjukkan perangkat IoT dalam kondisi **offline**.  
 > Hal ini bisa terjadi karena **perangkat mati** atau **tidak terhubung ke jaringan/MQTT Broker**, sehingga kontrol dari dashboard sementara tidak dapat digunakan.
 
-![Dashboard Connected](./Client/public/img/dashboard/offline-device.png)
+![Dashboard Devices Online](./Client/public/img/dashboard/offline-device.png)
 
 ---
 
@@ -327,7 +337,7 @@ Mensimulasikan penggunaan mesin cuci:
 > Menampilkan bahwa terdapat **orang di ruangan**.  
 > Ikon pengguna akan muncul di dashboard, dan **kontrol perangkat dinonaktifkan** selama ruangan masih terisi. Contohnya saat kompor sedang digunakan.
 
-![Dashboard Connected](./Client/public/img/dashboard/on-occupancy.png)
+![Dashboard On Occupancy](./Client/public/img/dashboard/on-occupancy.png)
 
 ---
 
@@ -335,7 +345,7 @@ Mensimulasikan penggunaan mesin cuci:
 > Menampilkan bahwa ruangan **sudah tidak digunakan**.  
 > Ikon pengguna hilang, dan **kontrol perangkat dapat digunakan kembali** dari dashboard.
 
-![Dashboard Connected](./Client/public/img/dashboard/off-occupancy.png)
+![Dashboard Off Occupancy](./Client/public/img/dashboard/off-occupancy.png)
 
 ---
 
