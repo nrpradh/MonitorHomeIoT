@@ -44,12 +44,6 @@ Dengan arsitektur ini, projek *Home Monitor* memungkinkan pemantauan dan pengend
   *Version control system* untuk pengelolaan *source code*.
 
 ## c. Gambar rangkaian (wiring diagram)
-> **Placeholder:** Gambar wiring diagram akan ditambahkan di sini.  
-> Diagram ini akan menunjukkan koneksi antara mikrokontroler (ESP32/ESP8266), relay, sensor okupansi, dan perangkat listrik (lampu, kulkas, kompor, mesin cuci, pompa air).
-
-![Wiring Diagram Placeholder](./Client/public/img)
-## d. Gambar arsitektur aplikasi dan jaringan komputer  
-
 ### 1. Wiring untuk *Bedrooms* 
 > Rangkaian untuk ketiga ruang kamar menggunakan Wokwi.
 
@@ -65,6 +59,10 @@ Dengan arsitektur ini, projek *Home Monitor* memungkinkan pemantauan dan pengend
 
 ![Wiring Kitchen](./Client/public/img/wiring/kitchen.png)
 ---
+
+
+## d. Gambar arsitektur aplikasi dan jaringan komputer  
+
 
 Catatan:
 File dan folder yang tidak ditampilkan di bawah **tidak digunakan** dalam pembahasan proyek ini.
